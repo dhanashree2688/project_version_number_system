@@ -1,0 +1,16 @@
+$def with (dis)
+<form>
+<p> select the project to check the updated version number</p>
+<select id = "dropdown_update" onchange="myFunction_update()">
+$for version_table in dis:
+    <option value="$version_table.version_no">$version_table.project_name</option>
+</select>
+<input type="text" id="rrt" placeholder="get value on option select"><br>
+<a href="CookieGet">Click here to continue</a>
+</form>
+<script>
+function myFunction_update()
+{
+document.getElementById("rrt").value = document.getElementById("dropdown_update").value;
+}
+</script>

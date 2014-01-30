@@ -1,0 +1,45 @@
+$def with (i, j, k, l)
+<form>
+<p> select the project to check the current version number</p>
+<select id = "dropdown" onchange="myFunction()">
+$for version_table in i:
+    <option value="$version_table.version_no">$version_table.project_name</option>
+</select>
+<input type="text" id="srt" placeholder="get value on option select"><br>
+</form>
+<script>
+function myFunction()
+{
+document.getElementById("srt").value = document.getElementById("dropdown").value;
+
+}
+</script>
+<form method="post" action="add">
+<p> Enter the details if you wish to create a new project!</p>
+<p><input type="text" name="project_name" /> <input type="submit" value="Add New Project" /></p>
+<p><input type="text" name="major_version" /> <input type="submit" value="Add major rewrite" /></p>
+<p><input type="text" name="minor_version" /> <input type="submit" value="Add minor redesign number" /></p>
+<p><input type="text" name="bugfix_version" /> <input type="submit" value="Add Bugfix version" /></p>
+<p><input type="text" name="build_number" /> <input type="submit" value="Add build number" /></p>
+</form>
+
+<form method="post" action="edit">
+<p> select the project type</p>
+<select name="proj_types" >
+$for project_type in l:
+    <option value="$project_type.proj_types">$project_type.proj_types</option>
+</select>
+<br>
+<p> Select the project to be updated</p>
+<select name="project_name"> 
+$for version_table in j:
+    <option value="$version_table.project_name">$version_table.project_name</option>
+</select>
+<br>
+<p> Select the type of version number change</p>
+<select name="changes">
+$for build_table in k:
+    <option value="$build_table.changes">$build_table.changes</option>
+</select>
+<input type="submit" value="Update!"/>
+</form>

@@ -1,0 +1,13 @@
+$def with (mng)
+<form method="post" action="manage">
+<p> Select User</p>
+<select name="username">
+$for users in mng:
+    <option value="$users.username">$users.username</option>
+</select>
+<input type="submit" value="Modify" />
+</form>
+<form method="post" action="create">
+<p><input type="text" name="username" />  
+<p><input type="text" name="password" /> </p><p><input type="submit" value="Create New user" onclick="showDiv()"/> </p>
+</form>

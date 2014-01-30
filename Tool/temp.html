@@ -1,0 +1,31 @@
+$def with (i, j)
+<form>
+ <p> select your project from the existing list of projects</p>
+<select id = "dropdown" onchange="myFunction()">
+$for version_table in i:
+    <option value="$version_table.version_no">$version_table.project_name</option>
+</select>
+<input type="text" id="srt" placeholder="get value on option select"><br>
+<p> Select appropriate version number as per your change</p>
+<select id = "version" onchange="myFunction()">
+	<option value="major_rewrite">major_rewrite</option>
+	<option value="release_number">release_number</option>
+	<option value="bugfix">bugfix</option>
+	<option value="build_number">build_number</option>
+</select>
+<input type="text" id="rrt" placeholder="get value on option select"><br>
+
+</form>
+<script>
+function myFunction()
+{
+document.getElementById("srt").value = document.getElementById("dropdown").value;
+document.getElementById("rrt").value = document.getElementById("version").value;
+}
+</script>
+
+<form method="post" action="add">
+<p><input type="text" name="project_name" /> <input type="submit" value="Add New Project" /></p>
+<p><input type="text" name="version_no" /> <input type="submit" value="Create New version" /></p>
+
+</form>

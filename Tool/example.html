@@ -1,0 +1,9 @@
+$def with (i)
+<p> select your project from the existing list of projects</p>
+<select name = "dropdown">
+$for version_table in i:
+    <option value="t$version_table.project_name">$version_table.project_name</option>
+</select>
+<form method="post" action="new">
+<p><input type="text" name="project_name" /> <input type="submit" value="Select Project" /></p>
+</form>

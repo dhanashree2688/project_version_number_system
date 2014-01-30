@@ -1,0 +1,31 @@
+$def with (ad)
+<form method="post" action="admin">
+<p> Please Select The Admin Operation To Be Performed !</p>
+<select id = "dropdown" onchange="myFunction()">
+$for admin_choice in ad:
+    <option value="$admin_choice.functions">$admin_choice.functions</option>
+</select>
+<input type="text" id="srt" placeholder="get value on option select"><br>
+</form>
+<script>
+function myFunction()
+{
+document.getElementById("srt").value = document.getElementById("dropdown").value;
+var temp = document.getElementById("srt").value;
+var txt = "Go to Manage Users Page";
+var txt1 = "Go to Update Password Page";
+var txt2 = "Go to Normal Functions Page";
+if(document.getElementById("srt").value == "manage_users")
+  {
+  document.write(txt.link("manage"));
+  }
+if(document.getElementById("srt").value == "update_password")
+  {
+  document.write(txt1.link("passe"));
+  }
+if(document.getElementById("srt").value == "normal_function")
+  {
+  document.write(txt2.link("index"));
+  }
+} 
+</script>

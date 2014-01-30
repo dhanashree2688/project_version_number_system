@@ -1,0 +1,16 @@
+$def with(prv)
+<form method="POST" action="privilege">
+<select name="username" id = "dropdown" onchange="myFunction()">
+$for users in prv:
+    <option value="$users.username">$users.username</option>
+</select>
+<input type="checkbox" name="role" > Is Administrator ?<br>
+</br>
+<input type="submit" value="Update" />
+</form>
+<script>
+function myFunction()
+{
+document.getElementById("srt").value = document.getElementById("dropdown").value;
+}
+</script>

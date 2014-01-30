@@ -1,0 +1,8 @@
+$def with (i)
+<ul>
+$for version_table in i:
+    <li id="t$version_table.project_id">$version_table.project_name	$version_table.project_id	$version_table.version_no</li>
+</ul>
+<form method="post" action="add">
+<p><input type="text" name="project_name" /> <input type="submit" value="Add" /></p>
+</form>

@@ -1,0 +1,8 @@
+$def with (ad1)
+<form method="post" action="admin1">
+<p> select User</p>
+<select name="username" >
+$for users in ad1:
+    <option value="$users.username">$users.username</option>
+</select>
+</form>
